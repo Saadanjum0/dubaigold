@@ -11,19 +11,6 @@ const AdminLogin = () => {
 
   const handleGoBack = () => window.history.back();
 
-  const testSupabase = async () => {
-    try {
-      const url = 'https://dexczdjoaszbhjawbbzn.supabase.co/rest/v1/';
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: { 'apikey': (import.meta.env.VITE_SUPABASE_ANON_KEY || '') }
-      });
-      toast[res.ok ? 'success' : 'error'](`Supabase connectivity: ${res.status}`);
-    } catch (err) {
-      toast.error('Supabase connectivity failed');
-      console.error(err);
-    }
-  };
 
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
@@ -131,14 +118,6 @@ const AdminLogin = () => {
             className="w-full py-4 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg text-lg transition-colors duration-200 focus:ring-2 focus:ring-gray-400 focus:outline-none"
           >
             Login
-          </button>
-
-          {/* Test Supabase Button */}
-          <button
-            onClick={testSupabase}
-            className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-lg text-base transition-colors duration-200"
-          >
-            Test Supabase
           </button>
         </div>
       </div>
